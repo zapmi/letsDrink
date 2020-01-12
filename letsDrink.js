@@ -56,15 +56,15 @@ $(document).ready(function () {
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            // for (var i = 0; i < response.drinks.length; i++) {
-            var randomDrink = Math.floor(Math.random() * response.drinks.length);
-            console.log(randomDrink);
+            for (var i = 0; i < response.drinks.length; i++) {
+            // var randomDrink = Math.floor(Math.random() * response.drinks.length);
+            // console.log(randomDrink);
             var drinkDiv = $("<div>");
-            var name = $("<h3>").html(randomDrink.strDrink);
-            var image = $("<img>").attr("src", randomDrink.strDrinkThumb);
-            drinkDiv.append(randomDrink, name, image);
+            var name = $("<h3>").html(response.drinks[i].strDrink);
+            var image = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
+            drinkDiv.append(name, image);
             $("#drink-view").html(drinkDiv);
-            // }
+            }
         });
 
 

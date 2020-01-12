@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="letsDrink.js"></script>
     <title>Let's drink</title>
-    
+
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
@@ -17,13 +17,12 @@
     <div class="container">
         <h1>Let's Drink</h1>
         <form id="drink-form">
-            <label for="drink-input"><b>Search your favorite alcohol: </b></label>
+            <label for="drink-input"><b>Pick a random drink </b></label>
+            <input id="find-random" type="submit" value="Random Drink">
+            <br>
+            <label for="drink-input"><b>Or search your favorite alcohol: </b></label>
             <input type="text" id="drink-input">
             <input id="find-drink" type="submit" value="Drink Search">
-            <br>
-            <label for="drink-input"><b>Or pick a random drink </b></label>
-            <input id="find-random" type="submit" value="Random Drink">
-
         </form>
 
         <div id="drink-view"></div>
@@ -32,7 +31,7 @@
     </div>
 
 
-    
+
 
 </body>
 
