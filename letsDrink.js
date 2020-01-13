@@ -39,9 +39,7 @@ $(document).ready(function () {
     //pick random drink
 
     $("#find-random").on("click", function (event) {
-
         event.preventDefault();
-
 
         var settings = {
             "async": true,
@@ -56,15 +54,47 @@ $(document).ready(function () {
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            for (var i = 0; i < response.drinks.length; i++) {
+
             // var randomDrink = Math.floor(Math.random() * response.drinks.length);
             // console.log(randomDrink);
-            var drinkDiv = $("<div>");
-            var name = $("<h3>").html(response.drinks[i].strDrink);
-            var image = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
-            drinkDiv.append(name, image);
-            $("#drink-view").html(drinkDiv);
+            for (var i = 0; i < response.drinks.length; i++) {
+                var randomDrink = response.drinks[i].strDrink;
+                // for (var i = 0; i < randomDrink; i++)
+                var randDOM = (Math.floor(Math.random() * randomDrink));
+                // console.log(response.drinks[i].strDrink);
+                console.log(randDOM);
+
+                var drinkDiv = $("<div>");
+                // var name = $("<h3>").html(randomDrink);
+                // var image = $("<img>").attr("src", randomDrink);
+                // drinkDiv.append(name, image);
+                $("#drink-view").html(drinkDiv);
             }
+
+            //this will display number and photo outline
+            // var randomDrink = Math.floor(Math.random() * response.drinks.length);
+            // console.log(randomDrink);
+            // var drinkDiv = $("<div>");
+            // var name = $("<h3>").html(randomDrink);
+            // var image = $("<img>").attr("src", randomDrink);
+            // drinkDiv.append(name, image);
+            // $("#drink-view").html(drinkDiv);
+
+
+            //this for loop displays all drinks with pictures
+            // for (var i = 0; i < response.drinks.length; i++) {
+            //     var randomDrink = Math.floor(Math.random() * response.drinks[i].strDrink.length);
+            //     console.log(randomDrink);
+            //     var drinkDiv = $("<div>");
+            //     var name = $("<h3>").html(response.drinks[i].strDrink);
+            //     var image = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
+            //     drinkDiv.append(name, image);
+            //     $("#drink-view").append(drinkDiv);
+            // }
+
+
+
+
         });
 
 
