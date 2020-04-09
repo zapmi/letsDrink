@@ -5,7 +5,7 @@ $(document).ready(function () {
 
         event.preventDefault();
 
-        // Here we grab the text from the input box
+        
         var drink = $("#drink-input").val();
 
         var settings = {
@@ -22,11 +22,14 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
             console.log(response);
 
+            // $("#drink-view").text(JSON.stringify(response, null, 3));
+
             for (var i = 0; i < response.ingredients.length; i++) {
                 var drinkDiv = $("<div>");
-                var name = $("<h3>").html(response.ingredients[0].strIngredient);
-                var description = $("<p>").html(response.ingredients[0].strDescription);
-                drinkDiv.append(name, description);
+                var name = $("<h2>").html(response.ingredients[0].strIngredient);
+                var ABV = $("<h5>").html("Alcohol by Volume: " + response.ingredients[0].strABV + "%");
+                var description = $("<p>").html("<b>History: </b>" + response.ingredients[0].strDescription);
+                drinkDiv.append(name, ABV, description);
                 $("#drink-view").html(drinkDiv);
             }
             // $("#drink-view").text(JSON.stringify(response, null, 3));
@@ -55,21 +58,16 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
             console.log(response);
 
-            // var randomDrink = Math.floor(Math.random() * response.drinks.length);
-            // console.log(randomDrink);
-            for (var i = 0; i < response.drinks.length; i++) {
-                var randomDrink = response.drinks[i].strDrink;
-                // for (var i = 0; i < randomDrink; i++)
-                var randDOM = (Math.floor(Math.random() * randomDrink));
-                // console.log(response.drinks[i].strDrink);
-                console.log(randDOM);
+            
 
-                var drinkDiv = $("<div>");
-                // var name = $("<h3>").html(randomDrink);
-                // var image = $("<img>").attr("src", randomDrink);
-                // drinkDiv.append(name, image);
-                $("#drink-view").html(drinkDiv);
-            }
+
+            var randomDrink = Math.floor(Math.random() * response.drinks.length);
+            console.log(randomDrink);
+            var drinkDiv = $("<div>");
+            var name = $("<h3>").html(randomDrink);
+            var image = $("<img>").attr("src", randomDrink);
+            drinkDiv.append(name, image);
+            $("#drink-view").html(drinkDiv);
 
             //this will display number and photo outline
             // var randomDrink = Math.floor(Math.random() * response.drinks.length);
