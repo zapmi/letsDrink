@@ -61,13 +61,13 @@ $(document).ready(function () {
             
 
 
-            var randomDrink = Math.floor(Math.random() * response.drinks.length);
-            console.log(randomDrink);
-            var drinkDiv = $("<div>");
-            var name = $("<h3>").html(randomDrink);
-            var image = $("<img>").attr("src", randomDrink);
-            drinkDiv.append(name, image);
-            $("#drink-view").html(drinkDiv);
+            // var randomDrink = Math.floor(Math.random() * response.drinks.length);
+            // console.log(randomDrink);
+            // var drinkDiv = $("<div>");
+            // var name = $("<h3>").html(randomDrink);
+            // var image = $("<img>").attr("src", randomDrink);
+            // drinkDiv.append(name, image);
+            // $("#drink-view").html(drinkDiv);
 
             //this will display number and photo outline
             // var randomDrink = Math.floor(Math.random() * response.drinks.length);
